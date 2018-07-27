@@ -1,0 +1,40 @@
+*{
+  width: 1200px;
+  padding: 5px;
+}
+
+.wrapper{
+  width: 970px;
+  height: 2000px;
+  background-color: #00471B;;
+  display: inline-block;
+  border: 10px solid #F9A01B;
+}
+
+img{
+  width: 90px;
+  height: auto;
+  display: inline-block;
+}
+
+.emptyPokeDex{
+    width: 150px;
+    height: 600px;
+    border: 10px solid #F9A01B;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #002B5C;
+    color: #BEC0C2;
+    padding-left: 20px;
+    font-family: cursive;
+}
+
+.emptyPokeDex ul{
+    margin-left: 20px;
+}
+
+/*.wrapper{
+    width: 800px;
+    height: 900px;
+    display: inline-block;
+}*/

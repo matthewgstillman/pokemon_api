@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Advanced Pokedex</title>
+    <link rel="stylesheet" type="text/css" href="pokeDex.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function getPokemon(){
+        for (var i = 1; i < 152; i++){
+          $('.wrapper').append('<img ' + "id=" + "'" + i + "'" + 'src=http://pokeapi.co/media/img/' + i + '.png>');
+          }
+      });
+
+          $(document).on('click', 'img', function(){
+            var imgSrc ="http://pokeapi.co/media/img/"
+            var poke = "http://pokeapi.co/api/v1/pokemon/";
+            var numId =  $(this).attr('id');
+            var html_str = "";
+            // console.log(numId);
+            poke += numId;
+            // console.log(poke);
+            $.get(poke, function(res){
+              html_str += "<h1>" + res.abilities[0].name + "</h1>" + "<img " + 'src=http://pokeapi.co/media/img/' + numId  + '.png>' + "<h2>Types</h2>";
+              html_str += "<ul>";
+                    for(var i = 0; i < res.types.length; i++) {
+                        html_str += "<li>" + res.types[i].name + "</li>";
+                    }
+                    html_str += "</ul>";
+                    html_str += "<h3>Height</h3>"
+                    html_str += res.height;
+                    html_str += "<h3>Weight</h3>"
+                    html_str += res.weight;
+                    $('.emptyPokeDex').html(html_str);
+            }, "json");
+
+          });
+
+    </script>
+  </head>
+  <body>
+      <div class="wrapper">
+      </div>
+      <div class="emptyPokeDex">
+      </div>
+  </body>
+</html>
